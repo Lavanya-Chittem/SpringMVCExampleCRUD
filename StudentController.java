@@ -30,6 +30,15 @@ public class StudentController {
 	    return model;
 	}
 	
+	@RequestMapping(value="/list")
+	public ModelAndView listStudentform(ModelAndView model) throws IOException{
+	    List<Student> listStudent = studentDAO.list();
+	    model.addObject("listStudent", listStudent);
+	    model.setViewName("StudentList");
+	 
+	    return model;
+	}
+	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public ModelAndView newStudent(ModelAndView model) {
 	    Student student = new Student();
